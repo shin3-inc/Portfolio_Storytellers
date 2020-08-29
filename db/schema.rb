@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_063316) do
+ActiveRecord::Schema.define(version: 2020_08_29_071536) do
+
+  create_table "providers_themes_relations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tour_provider_id"
+    t.integer "tour_theme_id"
+    t.index ["tour_provider_id"], name: "index_providers_themes_relations_on_tour_provider_id"
+    t.index ["tour_theme_id"], name: "index_providers_themes_relations_on_tour_theme_id"
+  end
 
   create_table "tour_providers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +46,12 @@ ActiveRecord::Schema.define(version: 2020_08_26_063316) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_tour_providers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_tour_providers_on_reset_password_token", unique: true
+  end
+
+  create_table "tour_themes", force: :cascade do |t|
+    t.string "tour_theme_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

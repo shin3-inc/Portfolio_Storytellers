@@ -1,0 +1,19 @@
+
+.login {
+  width: 100%;
+  color: #0B6480;
+
+  &__row {
+	padding-top: 5px;
+	padding-bottom: 5px;
+  }
+
+  &__title {
+	padding-top: 30px;
+	padding-bottom: 20px;
+  }
+    &__card {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  }
+}

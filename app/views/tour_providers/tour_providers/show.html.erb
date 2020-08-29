@@ -1,0 +1,51 @@
+<div class="continer tour_provider">
+
+
+	<div class="card bg-light offset-1 tour_provider__card" style="max-width: 540px;">
+	  <div class="row no-gutters">
+	    <div class="col-md-4">
+	      <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
+	    </div>
+	    <div class="col-md-8">
+	      <div class="card-body">
+
+
+			<table class="table">
+                </tr>
+					<th><%= @tour_provider.last_name %><%= @tour_provider.first_name %></th>
+				</tr>
+				<tr>
+					<th><%= @tour_provider.tour_prefecture.name %><%= @tour_provider.tour_city %></th>
+				</tr>
+				<tr>
+				    <th>
+				    <% @tour_provider.tour_themes.each do |tour_theme| %>
+					  <%= tour_theme.tour_theme_name %>
+					<% end %>
+					</th>
+				</tr>
+				</tr>
+					<th><%= @tour_provider.profile_information %></th>
+				</tr>
+				</tr>
+					<th><%= @tour_provider.tour_prefecture.name %><%= @tour_provider.tour_city %></th>
+				</tr>
+				</tr>
+					<th><%= @tour_provider.blog_url %></th>
+				</tr>
+				<tr>
+					<th>follows
+					  <%#= link_to follow_user_path(user) do %>
+						<%#= user.follower.count %>
+					  <%# end %></th>
+				</tr>
+			</table>
+
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+</div>

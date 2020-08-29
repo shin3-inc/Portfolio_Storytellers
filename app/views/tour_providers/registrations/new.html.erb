@@ -1,35 +1,113 @@
-<div class="continer">
-  <div class="row">
-    <h2 class="col-xs-offset-2">新規会員登録</h2>
+<div class="continer login">
+  <div class="row  login__title">
+    <h2 class="offset-1">新規語り部登録</h2>
+
+    <div class="card col-4 offset-3">
+      <div class="card-body">
+        <h5 class="card-title">既に登録済みの方</h5>
+        <p class=""><%= link_to "こちら", new_session_path(resource_name), class: "devise-link card-link"%>からログインしてください。</p>
+      </div>
+    </div>
   </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
   <%= render "tour_providers/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+     <form>
+        <div class="registration-form-group align-self-start offset-1 form-group">
+          <div class="row login__row">
+              <%= f.label :　名前　　　　　　　　　　　　　（姓）%>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class: "form-contorol" %>
+              <%= f.label :　（名） %>
+              <%= f.text_field :first_name, autocomplete: "first_name",class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :　フリガナ　　　　　　　　　　（セイ）%>
+              <%= f.text_field :last_name_kana, autocomplete: "last_name_kana",class: "form-contorol" %>
+              <%= f.label :（メイ） %>
+              <%= f.text_field :first_name_kana, autocomplete: "first_name_kana",class: "form-contorol" %>
+          </div>
+          <div class="row login__row">
+              <%= f.label :メールアドレス,class: "col-2" %>
+              <%= f.email_field :email, autocomplete: "email", class: "form-contorol offset-2" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :郵便番号（ハイフンなし）,class: "col-4" %>
+              <%= f.text_field :postal_code, autocomplete: "postal_code",class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :住所,class: "col-2" %>
+              <%= f.text_field :address, autocomplete: "address", class: "form-contorol  offset-2 col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :電話番号（ハイフンなし）,class: "col-4" %>
+               <%= f.telephone_field :phone_number, autocomplete: "phone_number", class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :パスワード（６文字以上）,class: "col-4" %>
+                 <% if @minimum_password_length %>
+                   <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+                 <% end %>
+               <%= f.password_field :password, autocomplete: "new-password", class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :パスワード（確認用）,class: "col-4" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-contorol" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <div class="card col-7 offset-2 login__card">
+          <div class="card-body">
+            <p class="card-text">※以上で登録した苗字が、サイト内で使用されます。<br>
+            ※住所はご自身の住所を登録お願いします。ツアーの地域については下記にて登録になります。
+            </p>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+          <div class="row  login__row">
+               <%= f.label :県（ツアー開催地）,class: "col-4" %>
+               <%= f.collection_select :tour_prefecture_id, TourPrefecture.all, :id, :name, include_blank: "選択して下さい" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :市長村（ツアー開催地）,class: "col-4" %>
+               <%= f.text_field :tour_city, autocomplete: "tour_city", class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :取り扱いテーマ,class: "col-4" %>
+               <%= f.collection_check_boxes(:tour_theme_ids, TourTheme.all, :id, :tour_theme_name) do |tour_theme| %>
+                 <%= tour_theme.label do %>
+                   <%= tour_theme.check_box %>
+                   <%= tour_theme.text %>
+                 <% end %>
+               <% end %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :ご自身の紹介,class: "col-4" %>
+               <%= f.text_area :profile_information, autocomplete: "profile_information", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :twitter（あれば）,class: "col-4" %>
+               <%= f.text_field :twitter_url, autocomplete: "twitter_url", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :Facebook（あれば）,class: "col-4" %>
+               <%= f.text_field :facebook_url, autocomplete: "facebook_url", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :instagram（あれば）,class: "col-4" %>
+               <%= f.text_field :instagram_url, autocomplete: "instagram_url", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :ブログ（あれば）,class: "col-4" %>
+               <%= f.text_field :blog_url, autocomplete: "blog_url", class: "form-contorol col-6" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "tour_providers/shared/links" %>
-
+　　　</div>
+       <div class="actions  login__title">
+            <%= f.submit "登録", class: "registration-btn btn btn-info form-contorol offset-5" %>
+       </div>
+     </form>
+  <% end %>
 
 </div>
