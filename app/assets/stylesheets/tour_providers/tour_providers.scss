@@ -20,4 +20,26 @@
   margin-top: 50px;
   margin-bottom: 50px;
   }
+   &__profile_img {
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px 10px 10px 10px;
+   }
+   &__sns {
+    display: inline-block;
+    letter-spacing: 1em;
+   }
+   &__tag {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #c0da74;
+    transition: .4s;
+   }
+   &__tag:hover {
+    background: #1ec7bb;
+   }
 }

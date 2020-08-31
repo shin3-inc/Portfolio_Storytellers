@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   registrations: 'tour_providers/registrations'
 }
 
-  root to: 'tour_providers/tour_providers#show'
+  root to: 'tour_providers/registrations#new'
+  # root to: 'tour_providers/tour_providers#show'
   get "home/about" => "homes#about"
 
 
