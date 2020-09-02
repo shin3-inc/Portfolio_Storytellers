@@ -6,7 +6,7 @@
     <div class="card col-4 offset-3">
       <div class="card-body">
         <h5 class="card-title">語り部未登録の方</h5>
-        <p class=""><%= link_to "こちら", new_registration_path(resource_name), class: "devise-link card-link"%>から新規登録してください。</p>
+        <p class=""><%= link_to "こちら", new_tour_provider_registration_path, class: "devise-link card-link"%>から新規登録してください。</p>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
    </div>
 <% end %>
 
-<%= render "tour_providers/shared/links" %>
+<%#= render "tour_providers/shared/links" %>
 
 
 </div>

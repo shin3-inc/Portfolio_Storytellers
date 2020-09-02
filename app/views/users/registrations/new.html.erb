@@ -1,29 +1,50 @@
-<h2>Sign up</h2>
+<div class="continer login">
+  <div class="row login__signup_image"></div>
+  <div class="row  login__title">
+    <h2 class="offset-1">新規会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="card col-4 offset-3">
+      <div class="card-body">
+        <h5 class="card-title">既に登録済みの方</h5>
+        <p class=""><%= link_to "こちら", new_user_session_path, class: "devise-link card-link"%>からログインしてください。</p>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+     <form>
+        <div class="registration-form-group align-self-start offset-1 form-group">
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+          <div class="row login__row">
+              <%= f.label :ユーザー名,class: "col-2" %>
+              <%= f.email_field :user_name, autocomplete: "user_name", class: "form-contorol offset-2" %>
+          </div>
+          <div class="row login__row">
+              <%= f.label :メールアドレス,class: "col-2" %>
+              <%= f.email_field :email, autocomplete: "email", class: "form-contorol offset-2" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :パスワード（６文字以上）,class: "col-4" %>
+                 <% if @minimum_password_length %>
+                   <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+                 <% end %>
+               <%= f.password_field :password, autocomplete: "new-password", class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :パスワード（確認用）,class: "col-4" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-contorol" %>
+          </div>
 
-<%= render "users/shared/links" %>
+       <div class="actions  login__title">
+            <%= f.submit "登録", class: "registration-btn btn btn-info form-contorol offset-5" %>
+       </div>
+      </div>
+    </form>
+  <% end %>
+
+
+<%#= render "users/shared/links" %>
+
+</div>

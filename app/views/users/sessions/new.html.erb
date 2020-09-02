@@ -1,26 +1,46 @@
-<h2>Log in</h2>
+<div class="continer login">
+  <div class="row login__login_image"></div>
+  <div class="row  login__title">
+    <h2 class="offset-1">ログイン</h2>
+  </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="row login__row offset-1">
+        <%= f.label :メールアドレス,class: "col-2" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-contorol offset-2" %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    <div class="row  login__row offset-1">
+         <%= f.label :パスワード（６文字以上）,class: "col-4" %>
+           <% if @minimum_password_length %>
+             <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+           <% end %>
+         <%= f.password_field :password, autocomplete: "current-password", class: "form-contorol" %>
+    </div>
+
+
+   <div class="actions  login__title">
+        <%= f.submit "ログイン", class: "registration-btn btn btn-info form-contorol offset-5" %>
+   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+  <div class="row home__title justify-content-center">
+    <div class="card-deck col-10">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">会員未登録の方</h5>
+          <p class="card-text"><%= link_to "こちら", new_user_registration_path, class: "devise-link card-link"%>から新規登録してください。</p>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">語り部の方</h5>
+          <p class="card-text"><%= link_to "こちら", new_tour_provider_session_path, class: "devise-link card-link"%>からログインして下さい。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<%#= render "users/shared/links" %>
+</div>

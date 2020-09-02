@@ -12,11 +12,11 @@
 
     <header><!-- /header -->
       <nav class="navbar navbar-expand-lg navbar-light border-bottom">
-        <a class="navbar-brand" href="#"><img src="/assets/logo.jpg" style="height: 50px;"></a>
+        <a class="navbar-brand" href="/"><img src="<%= asset_path "logo.jpg" %>" style="height: 50px;"></a>
 
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link" href="#">初めての方へ</a>
+            <%= link_to "初めての方へ", home_about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">語り部さん一覧</a>
@@ -25,7 +25,13 @@
             <a class="nav-link" href="#">地域</a>
           </li>
           <li class="nav-item">
-            <%= link_to "ログアウト", destroy_tour_provider_session_path, method: :delete,class: "nav-link" %>
+            <% if tour_provider_signed_in? %>
+              <%= link_to "ログアウト", destroy_tour_provider_session_path, method: :delete,class: "nav-link" %>
+            <% elsif user_signed_in? %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "nav-link" %>
+            <% else %>
+              <%= link_to "ログイン", new_user_session_path,class: "nav-link" %>
+            <% end %>
           </li>
         </ul>
       </nav>

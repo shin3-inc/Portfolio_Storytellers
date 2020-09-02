@@ -1,22 +1,22 @@
 
-.login {
+.home {
   width: 100%;
   color: #0B6480;
 
-  &__login_image {
+  &__top_image {
   width: 100%;
   height: 300px;
   background-size: cover;
   background-position: center;
-  background-image: image-url("buttou.jpg");
+  background-image: image-url("kouyasann.jpg");
   }
 
-  &__signup_image {
+  &__about_image {
   width: 100%;
   height: 300px;
   background-size: cover;
   background-position: center;
-  background-image: image-url("tumago1.jpg");
+  background-image: image-url("erabu1.jpg");
   }
 
   &__row {
