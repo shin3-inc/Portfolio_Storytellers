@@ -35,9 +35,14 @@
 			    </tr>
 					<th>
 						<div class="tour_provider__sns">
-					      <i class="fa fa-facebook-official" aria-hidden="true"></i>
-					      <i class="fa fa-twitter" aria-hidden="true"></i>
-					      <i class="fa fa-instagram" aria-hidden="true"></i>
+						  <a href="<%= @tour_provider.twitter_url %>" rel="nofollow">
+					        <i class="fa fa-twitter" aria-hidden="true"></i>
+					      </a>						  <a href="<%= @tour_provider.facebook_url %>" rel="nofollow">
+					        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+					      </a>
+						  <a href="<%= @tour_provider.instagram_url %>" rel="nofollow">
+					        <i class="fa fa-instagram" aria-hidden="true"></i>
+					      </a>
 					    </div>
 					</th>
 				</tr>

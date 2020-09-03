@@ -4,4 +4,6 @@ class Tour < ApplicationRecord
   accepts_nested_attributes_for :courses, allow_destroy: true
   has_many :maps, dependent: :destroy
   has_many :events, dependent: :destroy
+
+  attachment :tour_image
 end

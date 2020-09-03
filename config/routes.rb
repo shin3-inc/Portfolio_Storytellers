@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :tour_providers do
-    get 'maps/create'
-    get 'maps/index'
-  end
-  namespace :tour_providers do
-    get 'tours/create'
-    get 'tours/show'
-    get 'tours/edit'
-    get 'tours/update'
-  end
   resources :events
   devise_for :users, controllers: {
   sessions:      'users/sessions',
@@ -30,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :tour_providers do
     resource :tour_providers, only: [:edit, :update, :index, :show]
+    resource :tours, only: [:new, :create, :show, :edit, :update]
   end
 
 
