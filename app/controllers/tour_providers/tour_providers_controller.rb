@@ -1,5 +1,4 @@
 class TourProviders::TourProvidersController < ApplicationController
- before_action :authenticate_tour_provider!
 
   def index
   end

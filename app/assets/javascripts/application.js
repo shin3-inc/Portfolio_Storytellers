@@ -18,3 +18,21 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+//= require cocoon
+//= require moment
+//= require fullcalendar
+
+$(function () {
+    function eventCalendar() {
+        return $('#calendar').fullCalendar({});
+    };
+    function clearCalendar() {
+        $('#calendar').html('');
+    };
+});
+
+$(document).on('turbolinks:load', function () {
+    eventCalendar();
+});
+$(document).on('turbolinks:before-cache', clearCalendar);

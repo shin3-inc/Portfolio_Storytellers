@@ -1,0 +1,2 @@
+module TourProviders::ToursHelper
+end

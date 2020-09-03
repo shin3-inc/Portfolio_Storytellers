@@ -1,0 +1,2 @@
+module TourProviders::MapsHelper
+end

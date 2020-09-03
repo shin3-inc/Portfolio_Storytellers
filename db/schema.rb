@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_071536) do
+ActiveRecord::Schema.define(version: 2020_09_03_065555) do
+
+  create_table "courses", force: :cascade do |t|
+    t.integer "tour_id"
+    t.string "course_image_id"
+    t.string "course_introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "tour_id"
+    t.string "event_title"
+    t.text "event_description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.integer "tour_id"
+    t.text "map_address"
+    t.float "latitude"
+    t.float "longitude"
+    t.text "map_comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "providers_themes_relations", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -50,6 +78,17 @@ ActiveRecord::Schema.define(version: 2020_08_29_071536) do
 
   create_table "tour_themes", force: :cascade do |t|
     t.string "tour_theme_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.integer "tour_provider_id"
+    t.string "tour_image_id"
+    t.string "tour_main_phrase"
+    t.text "tour_introduction"
+    t.string "note"
+    t.integer "fee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

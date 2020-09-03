@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :tour_providers do
+    get 'maps/create'
+    get 'maps/index'
+  end
+  namespace :tour_providers do
+    get 'tours/create'
+    get 'tours/show'
+    get 'tours/edit'
+    get 'tours/update'
+  end
+  resources :events
   devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
