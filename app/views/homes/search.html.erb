@@ -1,0 +1,57 @@
+<div class="continer home">
+
+<div class="row home__search_image"></div>
+<div class="row home__title justify-content-center">
+<h3 class="col-3">検索結果</h3>
+</div>
+
+<div class="row home__title justify-content-center">
+<table class="table table-hover home__table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">名前</th>
+      <th scope="col"></th>
+      <th scope="col">地域</th>
+      <th scope="col">テーマ</th>
+      <th scope="col">メッセージ</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @providers.each do |provider| %>
+
+    <tr >
+  <!-- リンクdata-href= '<%= link_to edit_tour_providers_tours_path %>' -->
+
+      <th scope="row">
+      	<%= image_tag attachment_url(provider, :image, :fill, 50, 50, format: 'jpeg', class: "home__profile_img", fallback: "no_image.jpg"), size:"50x50" %>
+      </th>
+      <td>
+      	<%= provider.last_name %><%= provider.first_name %>
+      </td>
+      <td>
+      	いいね
+      </td>
+      <td>
+      	<%= provider.tour_prefecture.name %><%= provider.tour_city %>
+      </td>
+      <td>
+        <% provider.tour_themes.each do |tour_theme| %>
+	      <div class="home__tag">
+	      	<i class="fa fa-chevron-right"></i>
+		    <%= tour_theme.tour_theme_name %>
+		  </div>
+		<% end %>
+      </td>
+      <td>
+      	<%= provider.profile_information %>
+      </td>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
+</div>
+
+
+</div>

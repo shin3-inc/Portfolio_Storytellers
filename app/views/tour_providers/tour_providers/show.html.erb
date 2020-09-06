@@ -4,11 +4,10 @@
 	<div class="card bg-light offset-1 tour_provider__card" style="max-width: 70%;">
 	  <div class="row no-gutters">
 	    <div class="col-md-4">
-	      <%= attachment_image_tag @tour_provider, :profile_image_id, :fill, 60, 60, format: 'jpeg', class: "tour_provider__profile_img", fallback: "no_image.jpg" %>
+	      <%= attachment_image_tag @tour_provider, :image, :fill, 60, 60, format: 'jpeg', class: "tour_provider__profile_img", fallback: "no_image.jpg" %>
 	    </div>
 	    <div class="col-md-8">
 	      <div class="card-body">
-
 			<table class="table">
                 </tr>
 					<th><%= @tour_provider.last_name %><%= @tour_provider.first_name %></th>
@@ -37,7 +36,8 @@
 						<div class="tour_provider__sns">
 						  <a href="<%= @tour_provider.twitter_url %>" rel="nofollow">
 					        <i class="fa fa-twitter" aria-hidden="true"></i>
-					      </a>						  <a href="<%= @tour_provider.facebook_url %>" rel="nofollow">
+					      </a>
+					      <a href="<%= @tour_provider.facebook_url %>" rel="nofollow">
 					        <i class="fa fa-facebook-official" aria-hidden="true"></i>
 					      </a>
 						  <a href="<%= @tour_provider.instagram_url %>" rel="nofollow">
@@ -56,12 +56,63 @@
 					  <%# end %></th>
 				</tr>
 			</table>
-
-
 	      </div>
 	    </div>
-	  </div>
 	</div>
+    </div>
+<!-- 下記ツアー情報 -->
+      <div class="row media tour_provider__title">
+		  <%= attachment_image_tag @tour_provider.tour, :image, :fill, 350, 350, fallback: "no_image.jpg", size:"350x350", class: "img-fluid" %>
+		  <div class="media-body col-7">
+		    <h5 class="mt-0"><%= @tour.tour_main_phrase %></h5>
+		    <%= @tour.tour_introduction %>
+		  </div>
+	  </div>
+
+	  <div class="row tour_provider__title justify-content-center">
+		<h3 class="col-3">コース例</h3>
+	  </div>
+
+      <div class="table-responsive">
+	  <div class="card-deck">
+      <% @tour.courses.each do |course| %>
+
+		  <div class="card">
+    	    <%= attachment_image_tag course, :image, :fill, 200, 150, fallback: "no_image.jpg", size:"200x150", class: "img-fluid" %>
+		    <div class="card-body">
+		      <p class="card-text"><%= course.course_introduction %></p>
+		    </div>
+		  </div>
+
+      <% end %>
+      </div>
+      </div>
+	  <div class="row tour_provider__title justify-content-center">
+		<h3 class="col-3">注意事項</h3>
+	  </div>
+	  <div class="row tour_provider__row justify-content-center">
+		<h5 class="col-8"><%= @tour.note %></h5>
+	  </div>
+
+	  <div class="row justify-content-center">
+	  	<div class="card tour_provider__fee">
+		  <div class="card-header">
+		    ツアー料金【一人当たり】
+		  </div>
+		  <div class="card-body">
+		      <p>¥  <%= @tour.fee %></p>
+		  </div>
+	  	</div>
+	  </div>
 
 
+
+
+
+	  </div>
+<% if @tour.courses.present? %>
+  <%= link_to "ツアー編集", edit_tour_providers_tours_path,class: "btn" %>
+<% else %>
+  <%= link_to "ツアー登録", new_tour_providers_tours_path,class: "btn" %>
+<% end %>
 </div>

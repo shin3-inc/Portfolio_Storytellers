@@ -13,8 +13,8 @@
         <div class="align-self-start offset-1 form-group">
 
           <div class="row  tour_provider__row">
-      <%= attachment_image_tag @tour, :tour_image, :fill, 300, 300, fallback: "no_image.jpg", size:"300x300", class: "product-image" %>
-      <%= f.attachment_field :tour_image, id: "new-image" %>
+      <%= attachment_image_tag @tour, :image, :fill, 300, 300, fallback: "no_image.jpg", size:"300x300", class: "product-image" %>
+      <%= f.attachment_field :image, id: "new-image" %>
       </div>
           <div class="row  tour_provider__row">
               <%= f.label :ツアー見出し文,class: "col-2" %>

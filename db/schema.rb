@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_065555) do
+ActiveRecord::Schema.define(version: 2020_09_05_071708) do
 
   create_table "courses", force: :cascade do |t|
     t.integer "tour_id"
-    t.string "course_image_id"
+    t.string "image_id"
     t.string "course_introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_065555) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
-    t.string "profile_image_id"
+    t.string "image_id"
     t.integer "tour_prefecture_id"
     t.string "tour_city"
     t.text "profile_information"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_065555) do
 
   create_table "tours", force: :cascade do |t|
     t.integer "tour_provider_id"
-    t.string "tour_image_id"
+    t.string "image_id"
     t.string "tour_main_phrase"
     t.text "tour_introduction"
     t.string "note"

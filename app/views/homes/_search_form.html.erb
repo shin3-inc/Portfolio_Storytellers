@@ -1,0 +1,19 @@
+
+<div class="card text-center home__search_card" style="width: 19rem;">
+	<div class="card-body">
+	<%= search_form_for(q, url:search_path) do |f| %>
+	  <i class="fa fa-map-marker" aria-hidden="true"></i>
+	  <%= f.label :地域,class: "col-4" %>
+	  <br>
+	  <%= f.collection_select :tour_prefecture_id_eq, TourPrefecture.all, :id, :name, include_blank: "指定なし" %>
+	  <br><br>
+	  <i class="fa fa-tags" aria-hidden="true"></i>
+	  <%= f.label :tour_themes_id_in ,'テーマ',class: "col-4" %>
+	  <br>
+	  <%= f.collection_check_boxes :tour_themes_id_in, TourTheme.all, :id, :tour_theme_name %>
+	  <br><br>
+
+	<%= f.submit "検索", class: "btn btn-info form-contorol" %>
+	<% end %>
+	</div>
+</div>

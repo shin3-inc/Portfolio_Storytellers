@@ -2,14 +2,15 @@ class TourProviders::ToursController < ApplicationController
 
   def new
   	@tour = Tour.new
-  	@tour_find = current_tour_provider.id
+  	# @tour_find = current_tour_provider.id
+  	@tour.courses.build
   end
 
   def create
     @tour = Tour.new(tour_params)
     @tour.tour_provider_id = current_tour_provider.id
     @tour.save
-    redirect_to tour_provider_path(current_tour_provider)
+    redirect_to tour_providers_tour_providers_path
   end
 
   def show
@@ -23,6 +24,20 @@ class TourProviders::ToursController < ApplicationController
 
   private
   def tour_params
-    params.require(:tour).permit(:tour_provider_id, :tour_image, :tour_main_phrase, :tour_introduction, :note, :fee)
+    params.require(:tour).permit(
+    	:tour_provider_id,
+    	:image,
+    	:tour_main_phrase,
+    	:tour_introduction,
+    	:note,
+    	:fee,
+    	courses_attributes: [
+    		:id,
+    		:image,
+    		:image_cache_id,
+    		:course_introduction,
+    		:_destroy
+    	    ]
+    	)
   end
 end

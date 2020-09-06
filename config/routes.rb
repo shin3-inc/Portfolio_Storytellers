@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get "home/top" => "homes#top"
   get "home/about" => "homes#about"
-
+  get 'search', to: 'homes#search'
 
   namespace :tour_providers do
     resource :tour_providers, only: [:edit, :update, :index, :show]

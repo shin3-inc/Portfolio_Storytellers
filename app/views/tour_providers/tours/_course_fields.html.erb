@@ -1,0 +1,10 @@
+<div class="nested-fields border-bottom">
+    <%= f.label "コース画像" %>
+    <%= f.attachment_field :mage, id: "new-image" %>
+
+    <%= f.label "コース説明文" %>
+    <%= f.text_field :course_introduction %>
+    <%= link_to_remove_association "削除", f, class: "btn btn-secondary" %>
+
+
+</div>

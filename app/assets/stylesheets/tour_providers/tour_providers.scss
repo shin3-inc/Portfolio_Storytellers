@@ -6,6 +6,8 @@
 .tour_provider {
   width: 100%;
   color: #0B6480;
+  padding-left: 10%;
+  padding-right:  10%;
 
   &__row {
 	padding-top: 5px;
@@ -41,5 +43,11 @@
    }
    &__tag:hover {
     background: #1ec7bb;
+   }
+
+   &__fee {
+    max-width: 18rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
    }
 }

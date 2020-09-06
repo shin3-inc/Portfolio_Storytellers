@@ -78,6 +78,8 @@ gem 'cocoon'
 gem 'geocoder'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'ransack'
+
 
 gem 'dotenv-rails'
 group :production do
