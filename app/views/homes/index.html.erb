@@ -2,14 +2,14 @@
 
 <div class="row home__search_image"></div>
 <div class="row home__title justify-content-center">
-<h3 class="col-3">検索結果</h3>
+<h3 class="col-3">語り部さん一覧</h3>
 </div>
 
 <div class="row home__title justify-content-center">
 <table class="table table-hover home__table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col"></th>
       <th scope="col">名前</th>
       <th scope="col"></th>
       <th scope="col">地域</th>
@@ -20,14 +20,15 @@
   <tbody>
   	<% @providers.each do |provider| %>
 
-    <tr >
-  <!-- リンクdata-href= '<%= link_to edit_tour_providers_tours_path %>' -->
 
+    <tr>
       <th scope="row">
-      	<%= image_tag attachment_url(provider, :image, :fill, 50, 50, format: 'jpeg', class: "home__profile_img", fallback: "no_image.jpg"), size:"50x50" %>
+      	<%= image_tag attachment_url(provider, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg"), size:"50x50", class: "home__table_profile_img" %>
       </th>
       <td>
-      	<%= provider.last_name %>
+        <%= link_to (show_path(provider)) do %>
+      	  <%= provider.last_name %>
+        <% end %>
       </td>
       <td>
       	いいね

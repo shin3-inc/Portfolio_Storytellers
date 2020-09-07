@@ -5,7 +5,6 @@
 	  <div class="row no-gutters">
 	    <div class="col-md-4">
 	      <%= attachment_image_tag @tour_provider, :image, :fill, 60, 60, format: 'jpeg', class: "tour_provider__profile_img", fallback: "no_image.jpg" %><br><br>
-	      <%= link_to "編集", edit_tour_providers_tour_providers_path,class: "btn btn-info col offset-1" %>
 	    </div>
 
 	    <div class="col-md-8">
@@ -111,12 +110,5 @@
 
 
 	  </div>
-	  <div class="row tour_provider__title justify-content-center">
 
-		<% if @tour.courses.present? %>
-		  <%= link_to "ツアー編集", edit_tour_providers_tours_path,class: "btn btn-info col-5" %>
-		<% else %>
-		  <%= link_to "ツアー登録", new_tour_providers_tours_path,class: "btn btn-info col-5" %>
-		<% end %>
-	  </div>
 </div>

@@ -17,9 +17,17 @@ class TourProviders::ToursController < ApplicationController
   end
 
   def edit
+    @tour = Tour.find(current_tour_provider.id)
+    @tour.courses.build
   end
 
   def update
+    @tour = Tour.find(current_tour_provider.id)
+    if @tour.update(tour_params)
+      redirect_to tour_providers_tour_providers_path(@tour)
+    else
+       render "edit"
+    end
   end
 
   private
@@ -34,7 +42,6 @@ class TourProviders::ToursController < ApplicationController
     	courses_attributes: [
     		:id,
     		:image,
-    		:image_cache_id,
     		:course_introduction,
     		:_destroy
     	    ]

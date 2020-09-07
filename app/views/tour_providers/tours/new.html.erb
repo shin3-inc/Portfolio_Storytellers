@@ -13,7 +13,7 @@
         <div class="align-self-start offset-1 form-group">
 
           <div class="row  tour_provider__row">
-            <%= f.attachment_field :tour_image, id: "new-image" %>
+            <%= f.attachment_field :image, id: "new-image" %>
       			<%= attachment_image_tag @tour, :image, :fill, 350, 350, fallback: "no_image.jpg", size:"350x350", class: "product-image" %>
     		  </div>
           <div class="row  tour_provider__row">

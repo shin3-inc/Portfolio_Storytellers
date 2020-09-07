@@ -14,9 +14,12 @@ Rails.application.routes.draw do
 
   #root to: 'tour_providers/registrations#new'
   root to: 'homes#top'
-  get "home/top" => "homes#top"
-  get "home/about" => "homes#about"
+  get "home/top", to: "homes#top"
+  get "home/about", to: "homes#about"
   get 'search', to: 'homes#search'
+  get 'tour_providers', to: 'homes#index'
+  get 'tour_providers/:id', to: 'homes#show' ,as: :show
+
 
   namespace :tour_providers do
     resource :tour_providers, only: [:edit, :update, :index, :show]

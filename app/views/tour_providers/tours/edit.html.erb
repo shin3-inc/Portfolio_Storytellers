@@ -13,9 +13,9 @@
         <div class="align-self-start offset-1 form-group">
 
           <div class="row  tour_provider__row">
-      <%= attachment_image_tag @tour, :image, :fill, 300, 300, fallback: "no_image.jpg", size:"300x300", class: "product-image" %>
-      <%= f.attachment_field :image, id: "new-image" %>
-      </div>
+            <%= f.attachment_field :image, id: "new-image" %>
+            <%= attachment_image_tag @tour, :image, :fill, 350, 350, fallback: "no_image.jpg", size:"350x350", class: "product-image" %>
+          </div>
           <div class="row  tour_provider__row">
               <%= f.label :ツアー見出し文,class: "col-2" %>
               <%= f.text_field :tour_main_phrase, autocomplete: "tour_main_phrase", class: "form-contorol  offset-2 col-6" %>
@@ -32,9 +32,20 @@
                <%= f.label :ツアー料金（一人当たり）,class: "col-4" %>
                <%= f.text_field :fee, autocomplete: "fee", class: "form-contorol" %>
           </div>
-　　　  </div>
-       <div class="actions  tour_provider__title">
-            <%= f.submit "登録", class: "btn btn-info form-contorol offset-5" %>
+
+          <div class="row  tour_provider__row">
+            <%= f.label :ツアーコース例,class: "col-4" %>
+            <%= f.fields_for :courses do |t| %>
+                <%= render partial:"course_fields", locals: {  f: t } %>
+            <% end %>
+          </div>
+          <div class="row  tour_provider__row justify-content-center">
+            <%= link_to_add_association "コースを追加", f, :courses, class: "btn btn-info col-2" %>
+          </div>
+
+      </div>
+       <div class="actions row tour_provider__title">
+            <%= f.submit "更新", class: "btn btn-info form-contorol col-2 offset-4" %>
        </div>
      </form>
   <% end %>

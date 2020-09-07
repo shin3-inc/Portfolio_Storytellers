@@ -66,10 +66,14 @@
   margin-right:  10%;
   }
 
-
    &__search_card {
   margin: 1% 1% 1% 2%;
   background: rgba(0,0,0,0.5);
+  }
+
+   &__table_profile_img {
+  border-radius: 50%;
+  object-fit: cover;
   }
 
 }

@@ -1,2 +1,99 @@
-<h1>TourProviders::TourProviders#edit</h1>
-<p>Find me in app/views/tour_providers/tour_providers/edit.html.erb</p>
+<div class="continer login">
+	<div class="row login__title justify-content-center">
+		<h3 class="col-3">Storytellersとは</h3>
+	</div>
+
+	<%= form_with(model: @tour_provider, url: tour_providers_tour_providers_path, local: true) do |f| %>
+
+<form>
+        <div class="registration-form-group align-self-start offset-1 form-group">
+          <div class="row login__row">
+              <%= f.label :名前,class: "col-2" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class: "form-contorol" %>
+              <%= f.text_field :first_name, autocomplete: "first_name",class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :フリガナ,class: "col-2"%>
+              <%= f.text_field :last_name_kana, autocomplete: "last_name_kana",class: "form-contorol" %>
+              <%= f.text_field :first_name_kana, autocomplete: "first_name_kana",class: "form-contorol" %>
+          </div>
+          <div class="row login__row">
+              <%= f.label :メールアドレス,class: "col-2" %>
+              <%= f.email_field :email, autocomplete: "email", class: "form-contorol offset-2" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :郵便番号（ハイフンなし）,class: "col-4" %>
+              <%= f.text_field :postal_code, autocomplete: "postal_code",class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+              <%= f.label :住所,class: "col-2" %>
+              <%= f.text_field :address, autocomplete: "address", class: "form-contorol  offset-2 col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :電話番号（ハイフンなし）,class: "col-4" %>
+               <%= f.telephone_field :phone_number, autocomplete: "phone_number", class: "form-contorol" %>
+          </div>
+
+
+        <div class="card col-7 offset-2 login__card">
+          <div class="card-body">
+            <p class="card-text">※以上で登録した苗字が、サイト内で使用されます。<br>
+            ※住所はご自身の住所を登録お願いします。ツアーの地域については下記内容を使用します。
+            </p>
+          </div>
+        </div>
+
+
+
+
+          <div class="row">
+             <%= image_tag attachment_url(@tour_provider, :image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg"), size:'150x150', class: "login__profile_img" %>
+             <%= f.attachment_field :image, id: "new-image" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :県（ツアー開催地）,class: "col-4" %>
+               <%= f.collection_select :tour_prefecture_id, TourPrefecture.all, :id, :name, include_blank: "選択して下さい" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :市長村（ツアー開催地）,class: "col-4" %>
+               <%= f.text_field :tour_city, autocomplete: "tour_city", class: "form-contorol" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :取り扱いテーマ,class: "col-4" %>
+               <%= f.collection_check_boxes(:tour_theme_ids, TourTheme.all, :id, :tour_theme_name) do |tour_theme| %>
+                 <%= tour_theme.label do %>
+                   <%= tour_theme.check_box %>
+                   <%= tour_theme.text %>
+                 <% end %>
+               <% end %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :ご自身の紹介,class: "col-4" %>
+               <%= f.text_area :profile_information, autocomplete: "profile_information", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :twitter（あれば）,class: "col-4" %>
+               <%= f.text_field :twitter_url, autocomplete: "twitter_url", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :Facebook（あれば）,class: "col-4" %>
+               <%= f.text_field :facebook_url, autocomplete: "facebook_url", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :instagram（あれば）,class: "col-4" %>
+               <%= f.text_field :instagram_url, autocomplete: "instagram_url", class: "form-contorol col-6" %>
+          </div>
+          <div class="row  login__row">
+               <%= f.label :ブログ（あれば）,class: "col-4" %>
+               <%= f.text_field :blog_url, autocomplete: "blog_url", class: "form-contorol col-6" %>
+          </div>
+
+
+
+
+
+
+
+	<%= f.submit '編集内容を保存する', class: "btn btn-info " %>
+<% end %>
+</div>

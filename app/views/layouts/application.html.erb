@@ -19,11 +19,11 @@
             <%= link_to "初めての方へ", home_about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">語り部さん一覧</a>
+            <%= link_to "語り部さん一覧", tour_providers_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+<!--           <li class="nav-item">
             <a class="nav-link" href="#">地域</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <% if tour_provider_signed_in? %>
               <%= link_to "ログアウト", destroy_tour_provider_session_path, method: :delete,class: "nav-link" %>

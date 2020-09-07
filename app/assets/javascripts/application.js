@@ -36,3 +36,7 @@ $(document).on('turbolinks:load', function () {
     eventCalendar();
 });
 $(document).on('turbolinks:before-cache', clearCalendar);
+
+// $("tr[data-link]").click(function() {
+//   window.location = $(this).data("link")
+// })

@@ -5,13 +5,20 @@ class TourProviders::TourProvidersController < ApplicationController
 
   def show
   	@tour_provider = current_tour_provider
-
+    @tour = current_tour_provider.tour
   end
 
   def edit
+    @tour_provider = current_tour_provider
   end
 
   def update
+    @tour_provider = current_tour_provider
+    if @tour_provider.update(tour_provider_params)
+       redirect_to tour_providers_tour_providers_path
+    else
+      render :edit
+      end
   end
 
 
@@ -19,7 +26,6 @@ class TourProviders::TourProvidersController < ApplicationController
   private
   def tour_provider_params
     params.require(:tour_provider).permit(
-      :tour_theme_ids [],
       :last_name,:first_name,
       :last_name_kana,
       :first_name_kana,
@@ -33,7 +39,9 @@ class TourProviders::TourProvidersController < ApplicationController
       :twitter_url,
       :facebook_url,
       :instagram_url,
-      :blog_url)
+      :blog_url,
+      { :tour_theme_ids=> [] }
+        )
   end
 
 
