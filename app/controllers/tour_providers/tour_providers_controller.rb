@@ -1,7 +1,5 @@
 class TourProviders::TourProvidersController < ApplicationController
 
-  def index
-  end
 
   def show
   	@tour_provider = current_tour_provider

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :events
+
+
   devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
@@ -12,21 +13,31 @@ Rails.application.routes.draw do
   registrations: 'tour_providers/registrations'
 }
 
-  #root to: 'tour_providers/registrations#new'
+
+  resources :events
+
+  namespace :tour_providers do
+    resource :tour_providers, only: [:edit, :update, :show]
+    resource :tours, only: [:new, :create, :show, :edit, :update]
+  end
+
+  namespace :users do
+    resources :tour_providers, only:[:index, :show] do
+      resources :comments, only: [:create, :destroy]
+      post 'favorites', to: 'favorites#create'
+      delete 'favorites/:id', to: 'favorites#destroy'
+      get 'inquiry/index', to: "inquiry#index"
+      post 'inquiry/confirm', to: "inquiry#confirm"
+      post 'inquiry/thanks', to: "inquiry#thanks"
+    end
+  end
+
   root to: 'homes#top'
   get "home/top", to: "homes#top"
   get "home/about", to: "homes#about"
   get 'search', to: 'homes#search'
   get 'tour_providers', to: 'homes#index'
-  get 'tour_providers/:id', to: 'homes#show' ,as: :show
-
-
-  namespace :tour_providers do
-    resource :tour_providers, only: [:edit, :update, :index, :show]
-    resource :tours, only: [:new, :create, :show, :edit, :update]
-  end
-
-
+  get 'tour_providers/:id', to: 'homes#show' ,as: :home_show
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

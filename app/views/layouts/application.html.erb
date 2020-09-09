@@ -19,7 +19,11 @@
             <%= link_to "初めての方へ", home_about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "語り部さん一覧", tour_providers_path, class: "nav-link" %>
+            <% if user_signed_in? %>
+              <%= link_to "語り部さん一覧", users_tour_providers_path, class: "nav-link" %>
+            <% else %>
+              <%= link_to "語り部さん一覧", tour_providers_path, class: "nav-link" %>
+            <% end %>
           </li>
 <!--           <li class="nav-item">
             <a class="nav-link" href="#">地域</a>

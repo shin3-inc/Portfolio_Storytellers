@@ -1,0 +1,32 @@
+<div class="continer tour_provider">
+    <div class="row tour_provider__title justify-content-center">
+    <h3 class="col-5">語り部さんへコンタクト</h3>
+  </div>
+
+<%= form_for @inquiry, :url => users_tour_provider_inquiry_thanks_path(@tour_provider.id) do |f| %>
+  <div class="row home__title justify-content-center">
+  <table class="table table-hover tour_provider__table">
+    <tr>
+      <th>宛先</th>
+      <td>
+        <%= hidden_field_tag :tour_provider_id, @tour_provider.last_name %>
+        <%= @tour_provider.last_name %>さん宛
+        <%= hidden_field_tag :tour_provider_id, @tour_provider.email %>
+        <%= hidden_field_tag :user, @user.user_name %>
+        <%= hidden_field_tag :user, @user.email %>
+      </td>
+    </tr>
+    <tr>
+      <th>お問い合わせ内容</th>
+      <td>
+        <%= f.hidden_field :message %>
+        <%= simple_format(@inquiry.message) %>
+      </td>
+    </tr>
+  </table>
+  <div class="actions row tour_provider__title">
+      <%= f.submit "送信", class: "btn btn-info form-contorol col offset-4" %>
+  </div>
+<% end %>
+
+</div>

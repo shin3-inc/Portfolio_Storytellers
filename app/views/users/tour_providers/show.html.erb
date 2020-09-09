@@ -7,7 +7,7 @@
 	      <%= attachment_image_tag @tour_provider, :image, :fill, 60, 60, format: 'jpeg', class: "tour_provider__profile_img", fallback: "no_image.jpg" %><br><br>
 
 		<% if user_signed_in? %>
-		  <%= link_to "コンタクト", users_inquiry_index_path(@tour_provider.id),class: "btn btn-info col offset-1" %>
+		  <%= link_to "コンタクト", users_tour_provider_inquiry_index_path(@tour_provider.id),class: "btn btn-info col offset-1" %>
 		<% else %>
           <div class="card text-center col offset-1 bg-info">
 		    <div class="card-body">
@@ -118,9 +118,6 @@
 		  </div>
 	  	</div>
 	  </div>
-
-</div>
-
 <!-- コメント一覧 -->
 	  <div class="row tour_provider__title justify-content-center">
 		<h3 class="col-3">コメント</h3>
@@ -139,5 +136,14 @@
 		</table>
 	  </div>
 <!-- コメント投稿フォーム -->
+     <%= form_with model: @comment, url: users_tour_provider_comments_path(@tour_provider), local: true do |f| %>
+
+	    <div class="row tour_provider__row justify-content-center">
+	      <%= f.text_field :comment, class: "form-control col-6", placeholder: "コメント記入" %>
+	      <%= f.submit "送信", class: "btn btn-info col-2" %>
+	    </div>
+     <% end %>
+
+	  </div>
 
 </div>

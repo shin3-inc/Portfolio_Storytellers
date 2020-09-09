@@ -26,12 +26,12 @@
       	<%= image_tag attachment_url(provider, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg"), size:"50x50", class: "home__table_profile_img" %>
       </th>
       <td>
-        <%= link_to (home_show_path(provider)) do %>
+        <%= link_to (users_tour_provider_path(provider)) do %>
       	  <%= provider.last_name %>
         <% end %>
       </td>
       <td>
-        <i class="fa fa-comment"></i>
+      	<i class="fa fa-comment"></i>
         <a href="#comments"><%= provider.comments.count %></a>
       </td>
       <td>
