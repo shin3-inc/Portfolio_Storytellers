@@ -24,8 +24,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :tour_providers, only:[:index, :show] do
       resources :comments, only: [:create, :destroy]
-      post 'favorites', to: 'favorites#create'
-      delete 'favorites/:id', to: 'favorites#destroy'
+      resource :favorites, only: [:create, :destroy]
       get 'inquiry/index', to: "inquiry#index"
       post 'inquiry/confirm', to: "inquiry#confirm"
       post 'inquiry/thanks', to: "inquiry#thanks"

@@ -24,13 +24,28 @@
   <!-- リンクdata-href= '<%= link_to edit_tour_providers_tours_path %>' -->
 
       <th scope="row">
-      	<%= image_tag attachment_url(provider, :image, :fill, 50, 50, format: 'jpeg', class: "home__profile_img", fallback: "no_image.jpg"), size:"50x50" %>
+      	<%= image_tag attachment_url(provider, :image, :fill, 50, 50, format: 'jpeg'), size:"50x50", class: "home__profile_img", fallback: "no_image.jpg" %>
       </th>
       <td>
-      	<%= provider.last_name %>
+        <% if user_signed_in? %>
+          <%= link_to users_tour_provider_path(provider) do %>
+            <%= provider.last_name %>
+          <% end %>
+        <% else %>
+          <%= link_to home_show_path(provider) do %>
+        	  <%= provider.last_name %>
+          <% end %>
+        <% end %>
       </td>
       <td>
-      	いいね
+        <div class="list-inline">
+          <li class="list-inline-item">
+            <i class="fa fa-comment"><%= provider.comments.count %></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fa fa-thumbs-o-up"><%= provider.favorites.count %></i>
+          </li>
+        </div>
       </td>
       <td>
       	<%= provider.tour_prefecture.name %><%= provider.tour_city %>

@@ -55,8 +55,14 @@
 				</tr>
 				<tr>
 					<th>
-					  <i class="fa fa-comment"></i>
-                      <a href="#comments"><%= @tour_provider.comments.count %></a>
+					     <div class="list-inline">
+				          <li class="list-inline-item">
+				      	    <i class="fa fa-comment"><%= @tour_provider.comments.count %></i>
+				          </li>
+				          <li class="list-inline-item">
+				            <i class="fa fa-thumbs-o-up"><%= @tour_provider.favorites.count %></i>
+				          </li>
+				        </div>
 					</th>
 				</tr>
 			</table>

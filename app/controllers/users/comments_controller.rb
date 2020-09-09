@@ -10,6 +10,9 @@ class Users::CommentsController < ApplicationController
   end
 
   def destroy
+    Comment.find_by(id: params[:id], tour_provider_id: params[:tour_provider_id]).destroy
+    # comment.user_id = current_user.id
+    redirect_to users_tour_provider_path(params[:tour_provider_id])
   end
 
   private

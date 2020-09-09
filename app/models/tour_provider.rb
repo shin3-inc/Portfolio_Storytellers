@@ -5,7 +5,7 @@ class TourProvider < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  belongs_to :user
   has_many :providers_themes_relations, dependent: :destroy
   has_many :tour_themes, through: :providers_themes_relations
   accepts_nested_attributes_for :providers_themes_relations, allow_destroy: true

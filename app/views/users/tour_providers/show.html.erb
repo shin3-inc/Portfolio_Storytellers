@@ -65,8 +65,27 @@
 				</tr>
 				<tr>
 					<th>
-					  <i class="fa fa-comment"></i>
-                      <a href="#comments"><%= @tour_provider.comments.count %></a>
+					  <div class="list-inline">
+					  	<li class="list-inline-item">
+                          <i class="fa fa-comment"><%= @tour_provider.comments.count %></i>
+                        </li>
+<!-- いいね -->
+                        <li class="list-inline-item">
+						  <% if @tour_provider.favorited_by?(current_user) %>
+						    <%= link_to users_tour_provider_favorites_path(@tour_provider), method: :delete do %>
+						      <i class="fa fa-thumbs-up" aria-hidden="true" style="color: #FF3399;"></i>
+						      <%= @tour_provider.favorites.count %>
+						    <% end %>
+
+						  <% else %>
+						    <%= link_to users_tour_provider_favorites_path(@tour_provider), method: :post do %>
+						      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+						      <%= @tour_provider.favorites.count %>
+						    <% end %>
+						  <% end %>
+						</div>
+					  </li>
+<!-- いいね -->
 					</th>
 				</tr>
 			</table>
@@ -130,6 +149,13 @@
 		      <td scope="row"><%#= comment.user.user_name %></td>
 		      <td><%#= comment.created_at.strftime('%Y/%m/%d') %></td>
 		      <td><i class="fa fa-comment" aria-hidden="true"></i><%= comment.comment %></td>
+		      <td>
+		      	<% if comment.user == current_user %>
+                <div>
+                  <%= link_to "削除", users_tour_provider_comment_path(comment.tour_provider.id, comment.id), method: :delete, class: "btn btn-danger pull-right" %>
+                </div>
+                <% end %>
+		      </td>
 		    </tr>
 		    <% end %>
 		  </tbody>

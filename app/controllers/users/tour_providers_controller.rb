@@ -7,6 +7,7 @@ class Users::TourProvidersController < ApplicationController
     @user = current_user
     @tour_provider = TourProvider.find(params[:id])
     @comment = @tour_provider.comments.build
+    # @comments = Comment.find(params[:id])
     @tour = @tour_provider.tour
 
   end
