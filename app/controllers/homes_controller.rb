@@ -9,7 +9,10 @@ class HomesController < ApplicationController
 
   def search
     @q = TourProvider.search(search_params)
-    @providers = @q.result(distinct: true)
+    if @providers = @q.result(distinct: true)
+    else
+       render :top
+    end
   end
 
   def index

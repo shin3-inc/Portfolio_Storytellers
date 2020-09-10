@@ -1,15 +1,14 @@
 <div class="continer tour_provider">
 
-
-	<div class="card bg-light offset-1 tour_provider__card" style="max-width: 70%;">
+	<div class="card bg-light tour_provider__card col-auto">
 	  <div class="row no-gutters">
 	    <div class="col-md-4">
 	      <%= attachment_image_tag @tour_provider, :image, :fill, 60, 60, format: 'jpeg', class: "tour_provider__profile_img", fallback: "no_image.jpg" %><br><br>
 
 		<% if user_signed_in? %>
-		  <%= link_to "コンタクト", users_inquiry_index_path(@tour_provider.id),class: "btn btn-info col offset-1" %>
+		  <%= link_to "コンタクト", users_inquiry_index_path(@tour_provider.id),class: "btn btn-info col" %>
 		<% else %>
-          <div class="card text-center col offset-1 bg-info">
+          <div class="card text-center col bg-info">
 		    <div class="card-body">
 		      <p class="card-text"><small class="text-white">コンタクトするには<br>ログインが必要です</small></p>
 		    </div>
@@ -90,25 +89,23 @@
 	  </div>
 
 	  <div class="row tour_provider__title justify-content-center">
-		<h3 class="col-3">コース例</h3>
+		<h3 class="col-auto">コース例</h3>
 	  </div>
 
       <div class="table-responsive">
-	  <div class="card-deck">
-      <% @tour.courses.each do |course| %>
-
-		  <div class="card">
-    	    <%= attachment_image_tag course, :image, :fill, 200, 150, fallback: "no_image.jpg", size:"200x150", class: "img-fluid" %>
-		    <div class="card-body">
-		      <p class="card-text"><%= course.course_introduction %></p>
+	    <div class="card-deck">
+          <% @tour.courses.each do |course| %>
+		    <div class="card">
+    	      <%= attachment_image_tag course, :image, :fill, 200, 150, fallback: "no_image.jpg", size:"200x150", class: "img-fluid" %>
+		      <div class="card-body">
+		        <p class="card-text"><%= course.course_introduction %></p>
+		      </div>
 		    </div>
-		  </div>
-
-      <% end %>
-      </div>
+          <% end %>
+        </div>
       </div>
 	  <div class="row tour_provider__title justify-content-center">
-		<h3 class="col-3">注意事項</h3>
+		<h3 class="col-auto">注意事項</h3>
 	  </div>
 	  <div class="row tour_provider__row justify-content-center">
 		<h5 class="col-8"><%= @tour.note %></h5>
@@ -125,11 +122,9 @@
 	  	</div>
 	  </div>
 
-</div>
-
 <!-- コメント一覧 -->
 	  <div class="row tour_provider__title justify-content-center">
-		<h3 class="col-3">コメント</h3>
+		<h3 class="col-auto">コメント</h3>
 	  </div>
 	  <div class="row tour_provider__title justify-content-center">
         <table class="table table-borderless">
@@ -144,6 +139,6 @@
 		  </tbody>
 		</table>
 	  </div>
-<!-- コメント投稿フォーム -->
-
+<br><br><br>
+   </div>
 </div>

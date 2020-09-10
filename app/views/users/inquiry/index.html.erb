@@ -3,7 +3,7 @@
 
 <%= form_for @inquiry, :url => users_tour_provider_inquiry_confirm_path do |f| %>
   <div class="row tour_provider__title justify-content-center">
-    <h3 class="col-5">語り部さんへコンタクト</h3>
+    <h3 class="col-auto">語り部さんへコンタクト</h3>
   </div>
 
 
@@ -21,8 +21,8 @@
       <td><%= f.text_area :message %></td>
     </tr>
   </table>
-  <div class="actions row tour_provider__title">
-      <%= f.submit "確認", class: "btn btn-info form-contorol col offset-4" %>
+  <div class="actions row tour_provider__title justify-content-center">
+      <%= f.submit "確認", class: "btn btn-info form-contorol col-auto" %>
   </div>
 <% end %>
 

@@ -6,10 +6,10 @@
 
 
 	<div class="row home__title justify-content-center">
-		<h3 class="col-3">Storytellersとは</h3>
+		<h3 class="col-auto">Storytellersとは</h3>
 	</div>
 
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"style="height: 400px;" >
 	  <ol class="carousel-indicators">
 	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -17,7 +17,13 @@
 	  </ol>
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
-	      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: First slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
+	      <div class="media">
+		  <img src="<%= asset_path "kumano2.jpg" %>" class="img-fluid" width="400px" height="400px"></img>
+		  <div class="media-body">
+		    <h5 class="mt-0">世界遺産“紀伊山地の霊場と参詣道”<br>全ての道は“熊野本宮”の聖地につながる</h5>
+		    古代から中世にかけ、本宮・新宮・那智の熊野三山の信仰が高まり、上皇・女院から庶民にいたるまで、多くの人々が熊野を参詣しました。「蟻の熊野詣」と例えられるほど、多くの人々が切れ目なく熊野に参詣したと伝えられています。<br>その古道を様々な伝承をお話ししながら、ご案内します。
+		  </div>
+		</div>
 	    </div>
 	    <div class="carousel-item">
 	      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Second slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"/><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
@@ -37,7 +43,7 @@
 	</div>
 
 	<div class="row home__title justify-content-center">
-		<h3 class="col-3">Storytellersとは</h3>
+		<h3 class="col-auto">Storytellersとは</h3>
 	</div>
 
 	<div class="row home__title justify-content-center">
