@@ -4,33 +4,71 @@
   	<%= render partial:"search_form", locals: { q: @q } %>
   </div>
 
+  <div class="row home__title justify-content-center">
+	<h3 class="col-auto">Storytellers = 語り部</h3>
+  </div>
 
-	<div class="row home__title justify-content-center">
-		<h3 class="col-auto">Storytellersとは</h3>
-	</div>
-
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"style="height: 400px;" >
+  <div class="row home__title justify-content-center">
+	<div id="carouselExampleIndicators" class="carousel slide col-10" data-ride="carousel"style="height: 400px;" >
 	  <ol class="carousel-indicators">
 	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 	  </ol>
-	  <div class="carousel-inner">
+	<div class="carousel-inner">
+
 	    <div class="carousel-item active">
 	      <div class="media">
-		  <img src="<%= asset_path "kumano2.jpg" %>" class="img-fluid" width="400px" height="400px"></img>
-		  <div class="media-body">
-		    <h5 class="mt-0">世界遺産“紀伊山地の霊場と参詣道”<br>全ての道は“熊野本宮”の聖地につながる</h5>
-		    古代から中世にかけ、本宮・新宮・那智の熊野三山の信仰が高まり、上皇・女院から庶民にいたるまで、多くの人々が熊野を参詣しました。「蟻の熊野詣」と例えられるほど、多くの人々が切れ目なく熊野に参詣したと伝えられています。<br>その古道を様々な伝承をお話ししながら、ご案内します。
+		    <img src="<%= asset_path "kumano2.jpg" %>" class="img-fluid" width="400px" height="400px"></img>
+		    <div class="media-body">
+		      <h5 class="mt-0">世界遺産“紀伊山地の霊場と参詣道”<br>全ての道は“熊野本宮”の聖地につながる</h5>
+		      古代から中世にかけ、本宮・新宮・那智の熊野三山の信仰が高まり、上皇・女院から庶民にいたるまで、多くの人々が熊野を参詣しました。「蟻の熊野詣」と例えられるほど、多くの人々が切れ目なく熊野に参詣したと伝えられています。<br>その古道を様々な伝承をお話ししながら、ご案内します。<br>
+
+			  <div class="media mt-5 bg-light align-self-end">
+			    <img src="<%= asset_path "yamanakasan.jpg" %>" class="img-fluid rounded-circle" width="80px" height="80px"></img>
+			    <div class="media-body">
+			      <h6 class="mt-0">山中さん</h6>
+			      <small>「語り部の会」所属。6つある熊野古道の中で最も多くの旅人が歩いた中辺路をたどって熊野本宮大社を目指し、その後、熊野速玉大社、熊野那智大社を訪れるルートを案内。</small>
+			    </div>
+			  </div>
+		    </div>
 		  </div>
 		</div>
+	    <div class="carousel-item">
+	      <div class="media">
+		    <img src="<%= asset_path "erabu2.jpg" %>" class="img-fluid" width="400px" height="400px"></img>
+		    <div class="media-body">
+		      <h5 class="mt-0">ウミガメの楽園・沖永良部島で、海とジャングルと歴史を楽しむ</h5>
+		      島のことを知ることが、島に興味を持つことにつながります。少しでも沖永良部島を深く知って興味を持ってもらえるようにお手伝いします。観光コース・陸上からのウミガメ観察・石垣巡り・自然散策・西郷公ゆかりの史跡巡り・バードウォッチング・湧水巡り・マスコミ関連対応・浜巡り・ウォーキングコースなどを希望に合わせて案内します。<br>
+
+			  <div class="media mt-5 bg-light align-self-end">
+			    <img src="<%= asset_path "yamasitasan.jpg" %>" class="img-fluid rounded-circle" width="80px" height="80px"></img>
+			    <div class="media-body">
+			      <h6 class="mt-0">山さん</h6>
+			      <small>島エコツアーガイド協会会長として、島の事を深く知ってもらうため、島の案内や紹介をしています。</small>
+			    </div>
+			  </div>
+		    </div>
+		  </div>
 	    </div>
 	    <div class="carousel-item">
-	      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Second slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"/><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+	      <div class="media">
+		    <img src="<%= asset_path "hakone1.jpg" %>" class="img-fluid" width="400px" height="400px"></img>
+		    <div class="media-body">
+		      <h5 class="mt-0">箱根神社のルーツは、箱根山の主峰・神山にあり</h5>
+		      今の箱根神社が建ったのは奈良時代中期といわれ、それ以前は、神山が拝礼の対象であったようで、この神山が箱根神社のルーツであるといわれています。近年、縁結びの神として名高い九頭龍神社は、箱根神社中興の祖、万巻上人が芦ノ湖で鎮めた九頭龍の伝説に起因し、箱根神社の末社という位置づけです。<br>
+
+			  <div class="media mt-5 bg-light align-self-end">
+			    <img src="<%= asset_path "hage.jpg" %>" class="img-fluid rounded-circle" width="80px" height="80px"></img>
+			    <div class="media-body">
+			      <h6 class="mt-0">岡さん</h6>
+			      <small>「近くに行きたいの会」所属。都心に近い観光スポットに造詣が深く、会員仲間と共に街をブラブラする。</small>
+			    </div>
+			  </div>
+		    </div>
+		  </div>
 	    </div>
-	    <div class="carousel-item">
-	      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"/><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
-	    </div>
+
 	  </div>
 	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,6 +79,7 @@
 	    <span class="sr-only">Next</span>
 	  </a>
 	</div>
+    </div>
 
 	<div class="row home__title justify-content-center">
 		<h3 class="col-auto">Storytellersとは</h3>
@@ -48,6 +87,7 @@
 
 	<div class="row home__title justify-content-center">
 		<div class="card-deck col-10">
+
 		  <div class="card text-center">
 		    <img src="<%= asset_path "search.jpg" %>" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="200"></img>
 		    <div class="card-body">
@@ -83,5 +123,5 @@
 	</div>
 
 
-
+</div>
 </div>
