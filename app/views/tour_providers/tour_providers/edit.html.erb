@@ -1,6 +1,6 @@
 <div class="continer login">
 	<div class="row login__title justify-content-center">
-		<h3 class="col-3">Storytellersとは</h3>
+		<h3 class="col-auto">語り部さん情報編集</h3>
 	</div>
 
 	<%= form_with(model: @tour_provider, url: tour_providers_tour_providers_path, local: true) do |f| %>
@@ -9,13 +9,13 @@
         <div class="registration-form-group align-self-start offset-1 form-group">
           <div class="row login__row">
               <%= f.label :名前,class: "col-2" %>
-              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class: "form-contorol" %>
-              <%= f.text_field :first_name, autocomplete: "first_name",class: "form-contorol" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class: "form-contorol  offset-2" %>
+              <%= f.text_field :first_name, autocomplete: "first_name",class: "form-contorol offset-1" %>
           </div>
           <div class="row  login__row">
               <%= f.label :フリガナ,class: "col-2"%>
-              <%= f.text_field :last_name_kana, autocomplete: "last_name_kana",class: "form-contorol" %>
-              <%= f.text_field :first_name_kana, autocomplete: "first_name_kana",class: "form-contorol" %>
+              <%= f.text_field :last_name_kana, autocomplete: "last_name_kana",class: "form-contorol offset-2" %>
+              <%= f.text_field :first_name_kana, autocomplete: "first_name_kana",class: "form-contorol offset-1" %>
           </div>
           <div class="row login__row">
               <%= f.label :メールアドレス,class: "col-2" %>
@@ -42,8 +42,6 @@
             </p>
           </div>
         </div>
-
-
 
 
           <div class="row">
@@ -87,13 +85,11 @@
                <%= f.label :ブログ（あれば）,class: "col-4" %>
                <%= f.text_field :blog_url, autocomplete: "blog_url", class: "form-contorol col-6" %>
           </div>
+       </div>
 
-
-
-
-
-
-
-	<%= f.submit '編集内容を保存する', class: "btn btn-info " %>
+  <div class="row login__title justify-content-center">
+    <%= f.submit '編集内容を保存する', class: "btn btn-info col-auto" %>
+  </div>
+ </form>
 <% end %>
 </div>

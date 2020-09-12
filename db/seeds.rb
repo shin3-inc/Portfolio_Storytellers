@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# TourTheme.create!(tour_theme_name: '歴史',)
-# TourTheme.create!(tour_theme_name: '自然',)
-# TourTheme.create!(tour_theme_name: 'アクティビティ',)
-# TourTheme.create!(tour_theme_name: '動物',)
-# TourTheme.create!(tour_theme_name: 'その他',)
+TourTheme.create!(tour_theme_name: '歴史',)
+TourTheme.create!(tour_theme_name: '自然',)
+TourTheme.create!(tour_theme_name: 'アクティビティ',)
+TourTheme.create!(tour_theme_name: '動物',)
+TourTheme.create!(tour_theme_name: 'その他',)

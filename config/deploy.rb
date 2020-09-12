@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "Storytellers"
-set :repo_url, "git@github.com:shin3-inc/Portfolio_Storytellers.git"
+set :repo_url, "git@github.com:shin3-inc/Storytellers.git"
 set :deploy_to, "/home/ec2-user/Storytellers"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}

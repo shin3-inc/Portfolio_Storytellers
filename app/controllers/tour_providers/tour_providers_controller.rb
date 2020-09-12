@@ -12,11 +12,11 @@ class TourProviders::TourProvidersController < ApplicationController
 
   def update
     @tour_provider = current_tour_provider
-    if @tour_provider.update(tour_provider_params)
+     @tour_provider.update(tour_provider_params)
        redirect_to tour_providers_tour_providers_path
-    else
-      render :edit
-      end
+    # else
+    #   render :edit
+    # end
   end
 
 
@@ -30,6 +30,7 @@ class TourProviders::TourProvidersController < ApplicationController
       :postal_code,
       :address,
       :phone_number,
+      :email,
       :image,
       :tour_prefecture_id,
       :tour_city,
