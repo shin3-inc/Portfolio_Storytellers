@@ -145,6 +145,18 @@
 		      <td><%#= comment.created_at.strftime('%Y/%m/%d') %></td>
 		      <td><i class="fa fa-comment" aria-hidden="true"></i><%= comment.comment %></td>
 		      <td>
+<!-- コメントスコア -->
+		      <td class="sentiment-score">
+		      	<% case comment.score
+                when 0.2..1.0 %>
+		      	  <i class="fa fa-smile-o" aria-hidden="true" style="color: #FF3399;"></i>
+                <% when -1.0..-0.1 %>
+                  <i class="fa fa-frown-o" aria-hidden="true" style="color: blue;"></i>
+		      	<% else %>
+		      	  <i class="fa fa-meh-o" aria-hidden="true"></i>
+		      	<% end %>
+		      </td>
+<!-- コメントスコア -->
 		      	<% if comment.user == current_user %>
                 <div>
                   <%= link_to "削除", users_tour_provider_comment_path(comment.tour_provider.id, comment.id), method: :delete, class: "btn btn-danger pull-right" %>

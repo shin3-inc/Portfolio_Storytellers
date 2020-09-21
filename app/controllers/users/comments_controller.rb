@@ -3,6 +3,7 @@ class Users::CommentsController < ApplicationController
   	tour_provider = TourProvider.find(params[:tour_provider_id])
     # comment = current_user.comments.new(comment_params)
     comment = Comment.new(comment_params)
+    comment.score = Language.get_data(comment_params[:comment])  #この行を追加
     comment.user_id = current_user.id
     comment.tour_provider_id = tour_provider.id
     comment.save

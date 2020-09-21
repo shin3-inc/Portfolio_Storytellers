@@ -63,7 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Storytellers_#{Rails.env}"
 
-  config.action_mailer.default_url_options = { protocol: 'http',host:'54.168.166.46'}
+  config.action_mailer.default_url_options = { host:'54.168.166.46'}
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
