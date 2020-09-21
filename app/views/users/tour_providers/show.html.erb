@@ -157,6 +157,7 @@
 		      	<% end %>
 		      </td>
 <!-- コメントスコア -->
+      		  <td>
 		      	<% if comment.user == current_user %>
                 <div>
                   <%= link_to "削除", users_tour_provider_comment_path(comment.tour_provider.id, comment.id), method: :delete, class: "btn btn-danger pull-right" %>
